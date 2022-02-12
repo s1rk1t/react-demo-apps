@@ -1,10 +1,15 @@
 import './App.css';
 import { TeamPage } from './pages/TeamPage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <div className='App'>
-      <TeamPage />
+      <Router>
+        <Routes>
+          <Route path='/teams/:teamName/:year' element={<TeamPage />}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }

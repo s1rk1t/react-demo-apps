@@ -1,11 +1,11 @@
 import React from 'react';
 
-const GameSmall = ({ game }) => {
+const GameSmall = ({ game, mainTeam }) => {
+  const otherTeam = game.homeTeam === mainTeam ? game.awayTeam : game.homeTeam;
+
   return (
     <div className='GameSmall'>
-      <p>
-        {game.homeTeam} vs. {game.awayTeam}
-      </p>
+      <p>vs {otherTeam}</p>
     </div>
   );
 };
