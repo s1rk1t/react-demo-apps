@@ -26,18 +26,26 @@ export const TeamPage = (props) => {
   if (!teamData || !teamData.schedule) {
     return <ThreeDots type='Circles' color='#ffffff' height={80} width={80} />;
   }
+
+  // if (isFetched) console.log('matchups: ', teamData.matchups);
   return (
     <div className='TeamPage'>
-      <h1>{isFetched && teamData.teamRecord.team}</h1>
+      <h1>{isFetched && teamName}</h1>
       <GameDetail
-        mainTeam={teamName}
-        game={isFetched && teamData.schedule[0]}
+        mainTeam={isFetched && teamName}
+        game={isFetched && teamData.matchups[0].games[0]}
       />
       {isFetched &&
-        teamData.schedule.slice(1).map(
+        teamData.matchups.slice(1).map(
           (
             game // map over the last three games
-          ) => <GameSmall mainTeam={teamName} key={game.week} game={game} />
+          ) => (
+            <GameSmall
+              mainTeam={teamName}
+              key={game.games[0].week}
+              game={game.games[0]}
+            />
+          )
         )}
     </div>
   );
