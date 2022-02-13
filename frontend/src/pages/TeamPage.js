@@ -21,7 +21,7 @@ export const TeamPage = (props) => {
     };
 
     fetchGames();
-  }, []);
+  }, [teamName, year]);
 
   if (!teamData || !teamData.schedule) {
     return <ThreeDots type='Circles' color='#ffffff' height={80} width={80} />;

@@ -10,10 +10,14 @@ const GameDetail = ({ mainTeam, game }) => {
   const formattedDate = moment(date).format('MM-DD-YYYY');
   return (
     <div className='GameDetail'>
-      <h2>Latest Games</h2>
-      <h3>Game Summary</h3>
-      <h3>vs {otherTeam}</h3>
-      <h4>{formattedDate}</h4>
+      <h3>Latest Games</h3>
+      <h2>Game Summary</h2>
+      <h2>vs {otherTeam}</h2>
+      <h3>{formattedDate}</h3>
+      <h3>at {game.venue}</h3>
+      <h3>
+        {game.winner} won by {Math.abs(game.homeScore - game.awayScore)} points
+      </h3>
     </div>
   );
 };
