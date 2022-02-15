@@ -23,11 +23,10 @@ export const TeamPage = (props) => {
     fetchGames();
   }, [teamName, year]);
 
-  if (!teamData || !teamData.schedule || !teamName || !year) {
+  if (!teamData || !teamData.schedule || !teamName || !year || !isFetched) {
     return <ThreeDots type='Circles' color='#ffffff' height={80} width={80} />;
   }
 
-  // if (isFetched) console.log('matchups: ', teamData.matchups);
   return (
     <div className='TeamPage'>
       <h1>{isFetched && teamName}</h1>
