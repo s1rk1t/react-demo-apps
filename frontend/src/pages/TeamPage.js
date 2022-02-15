@@ -5,7 +5,7 @@ import GameSmall from '../components/GameSmall';
 import { ThreeDots } from 'react-loader-spinner';
 
 export const TeamPage = (props) => {
-  const { teamName, year } = useParams();
+  let { teamName, year } = useParams();
 
   const [teamData, setTeamData] = useState({});
   const [isFetched, setIsFetched] = useState(false);
@@ -23,7 +23,7 @@ export const TeamPage = (props) => {
     fetchGames();
   }, [teamName, year]);
 
-  if (!teamData || !teamData.schedule) {
+  if (!teamData || !teamData.schedule || !teamName || !year) {
     return <ThreeDots type='Circles' color='#ffffff' height={80} width={80} />;
   }
 
@@ -32,6 +32,7 @@ export const TeamPage = (props) => {
     <div className='TeamPage'>
       <h1>{isFetched && teamName}</h1>
       <GameDetail
+        year={year}
         mainTeam={isFetched && teamName}
         game={isFetched && teamData.matchups[0].games[0]}
       />
@@ -44,6 +45,7 @@ export const TeamPage = (props) => {
               mainTeam={teamName}
               key={game.games[0].week}
               game={game.games[0]}
+              year={year}
             />
           )
         )}
