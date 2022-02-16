@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'; // returns parameters passed into 
 import GameDetail from '../components/GameDetail';
 import GameSmall from '../components/GameSmall';
 import { ThreeDots } from 'react-loader-spinner';
+import { PieChart } from 'react-minimal-pie-chart';
+
 import './TeamPage.scss';
 
 export const TeamPage = (props) => {
@@ -36,6 +38,11 @@ export const TeamPage = (props) => {
     );
   }
 
+  // if (isFetched) {
+  //   nWins = teamData.teamRecord.conferenceGames.wins;
+  //   nLosses = teamData.teamRecord.conferenceGames.losses;
+  // }
+
   return (
     <div className='TeamPage'>
       <div className='team-name-section'>
@@ -44,7 +51,23 @@ export const TeamPage = (props) => {
           SEC Division: {teamData.teamRecord.division}
         </h2>
       </div>
-      <div className='win-loss-section'>Conference Wins / Losses</div>
+      <div className='win-loss-section'>
+        Total Conference Wins/Losses in {year}
+        <PieChart
+          data={[
+            {
+              title: 'Losses',
+              value: teamData.teamRecord.conferenceGames.losses,
+              color: '#780000',
+            },
+            {
+              title: 'Wins',
+              value: teamData.teamRecord.conferenceGames.wins,
+              color: '#43aa8b',
+            },
+          ]}
+        />
+      </div>
       <div className='game-detail-section'>
         <h2>Recent Games</h2>
         <GameDetail
@@ -67,8 +90,8 @@ export const TeamPage = (props) => {
             />
           )
         )}
-      <div>
-        <a href='#'>More</a>
+      <div className='more-link'>
+        <a href='#'>More ></a>
       </div>
     </div>
   );

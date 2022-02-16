@@ -15,7 +15,7 @@ const GameDetail = ({ mainTeam, game, year, teamRecord }) => {
       className={isGameWinner ? 'GameDetail win-card' : 'GameDetail loss-card'}
     >
       <span className='versus'>vs</span>{' '}
-      <h2>
+      <h2 className='game-opponent'>
         <Link to={otherTeamRoute}>{otherTeam}</Link>
       </h2>
       <h3 className='game-date'>{formattedDate}</h3>

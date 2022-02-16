@@ -1,4 +1,9 @@
 .GameSmall {
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+
+  .game-opponent,
+  .game-result {
+    margin-top: 10px;
+  }
 }

@@ -10,10 +10,10 @@ const GameSmall = ({ game, mainTeam, year }) => {
   return (
     <div className={isWinner ? 'GameSmall win-card' : 'GameSmall loss-card'}>
       <span className='versus'>vs</span>{' '}
-      <h3>
+      <h3 className='game-opponent'>
         <Link to={otherTeamRoute}>{otherTeam}</Link>
       </h3>
-      <p>
+      <p className='game-result'>
         {game.winner} won by {Math.abs(game.homeScore - game.awayScore)} points
       </p>
     </div>

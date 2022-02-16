@@ -9,6 +9,7 @@
     grid-column: span 3;
     justify-self: start;
     align-self: end;
+    margin-bottom: 10px;
   }
 
   .team-name {
@@ -18,13 +19,23 @@
   .win-loss-section {
     grid-column: span 1;
     justify-self: center;
+    padding: 30px;
+    text-align: center;
   }
 
   .game-detail-section {
     grid-column: span 4;
+    margin-bottom: auto;
+    //margin-bottom: 10px;
   }
 
   .spinner {
     align-self: right;
+  }
+
+  .more-link {
+    align-self: center;
+    justify-self: center;
+    font-size: 1.5rem;
   }
 }
