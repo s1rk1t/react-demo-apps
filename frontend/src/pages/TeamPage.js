@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'; // returns parameters passed into 
 import GameDetail from '../components/GameDetail';
 import GameSmall from '../components/GameSmall';
 import { ThreeDots } from 'react-loader-spinner';
+import './TeamPage.scss';
 
 export const TeamPage = (props) => {
   let { teamName, year } = useParams();
@@ -24,17 +25,35 @@ export const TeamPage = (props) => {
   }, [teamName, year]);
 
   if (!teamData || !teamData.schedule || !teamName || !year || !isFetched) {
-    return <ThreeDots type='Circles' color='#ffffff' height={80} width={80} />;
+    return (
+      <ThreeDots
+        className='spinner'
+        type='Circles'
+        color='#ffffff'
+        height={80}
+        width={80}
+      />
+    );
   }
 
   return (
     <div className='TeamPage'>
-      <h1>{isFetched && teamName}</h1>
-      <GameDetail
-        year={year}
-        mainTeam={isFetched && teamName}
-        game={isFetched && teamData.matchups[0].games[0]}
-      />
+      <div className='team-name-section'>
+        <h1 className='team-name'>{isFetched && teamName}</h1>
+        <h2 className='team-division'>
+          SEC Division: {teamData.teamRecord.division}
+        </h2>
+      </div>
+      <div className='win-loss-section'>Conference Wins / Losses</div>
+      <div className='game-detail-section'>
+        <h2>Recent Games</h2>
+        <GameDetail
+          year={year}
+          mainTeam={isFetched && teamName}
+          game={isFetched && teamData.matchups[0].games[0]}
+          teamRecord={isFetched && teamData.teamRecord}
+        />
+      </div>
       {isFetched &&
         teamData.matchups.slice(1).map(
           (
@@ -48,6 +67,9 @@ export const TeamPage = (props) => {
             />
           )
         )}
+      <div>
+        <a href='#'>More</a>
+      </div>
     </div>
   );
 };

@@ -2,3 +2,10 @@
   padding: 25px;
   text-align: left;
 }
+.win-card {
+  background-color: #43aa8b;
+}
+
+.loss-card {
+  background-color: #780000;
+}

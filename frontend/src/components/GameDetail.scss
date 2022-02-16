@@ -1,0 +1,18 @@
+.GameDetail {
+  padding: 10px;
+  margin-bottom: 20px;
+
+  .game-date,
+  .game-venue,
+  .game-result {
+    margin-top: 10px;
+  }
+}
+
+.win-card {
+  background-color: #43aa8b;
+}
+
+.loss-card {
+  background-color: #780000;
+}
