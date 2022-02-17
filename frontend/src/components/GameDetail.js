@@ -3,7 +3,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import './GameDetail.scss';
 
-const GameDetail = ({ mainTeam, game, year, teamRecord }) => {
+const GameDetail = ({ mainTeam, game, year }) => {
   const otherTeam = game.homeTeam === mainTeam ? game.awayTeam : game.homeTeam;
   const otherTeamRoute = `/teams/${otherTeam}/${year}`;
   const date = new Date(game.date);

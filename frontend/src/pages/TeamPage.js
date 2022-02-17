@@ -74,7 +74,6 @@ export const TeamPage = (props) => {
           year={year}
           mainTeam={isFetched && teamName}
           game={isFetched && teamData.matchups[0].games[0]}
-          teamRecord={isFetched && teamData.teamRecord}
         />
       </div>
       {isFetched &&
