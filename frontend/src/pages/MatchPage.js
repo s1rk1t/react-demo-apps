@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'; // returns parameters passed into Route's path
 import { ThreeDots } from 'react-loader-spinner';
 import GameDetail from '../components/GameDetail';
+import { YearSelector } from '../components/YearSelector';
+import './MatchPage.scss';
 
 export const MatchPage = (props) => {
   let { teamName, year } = useParams();
@@ -28,13 +30,17 @@ export const MatchPage = (props) => {
 
   return (
     <div className='MatchPage'>
-      <h1>Match Page</h1>
+      <div className='year-selector'>
+        <YearSelector team={teamName} />
+      </div>
       <div className='game-detail-section'>
+        <h1>Match Page</h1>
         {matchups.map((match) => (
           <GameDetail
             year={year}
             mainTeam={isFetched && teamName}
             game={isFetched && match.games[0]}
+            key={Math.random().toString()}
           />
         ))}
       </div>

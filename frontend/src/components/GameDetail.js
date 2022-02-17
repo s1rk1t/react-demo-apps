@@ -19,7 +19,7 @@ const GameDetail = ({ mainTeam, game, year }) => {
         <Link to={otherTeamRoute}>{otherTeam}</Link>
       </h2>
       <h3 className='game-date'>{formattedDate}</h3>
-      <h3 className='game-venue'>at {game.venue}</h3>
+      {game.venue && <h3 className='game-venue'>at {game.venue}</h3>}
       <h3 className='game-result'>
         {game.winner} won by {Math.abs(game.homeScore - game.awayScore)} points
       </h3>
