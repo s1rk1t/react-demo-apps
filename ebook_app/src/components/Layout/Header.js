@@ -2,10 +2,19 @@ import React, { Fragment, Link } from 'react';
 // allows for dynamic class names and handling css scope
 import classes from './Header.module.css';
 import wallpaper from '../../assets/images/bookmark.jpg';
-
+import food from '../../assets/images/meals.jpg';
 const Header = (props) => {
   return (
-      
+    <Fragment>
+      <header className={classes.header}>
+        <h1>Bookmark</h1>
+        <button>Cart</button>
+      </header>
+      <div className={classes['main-image']}>
+        <img src={food} alt='food'></img>
+      </div>
+    </Fragment>
+
     // <Fragment>
     //   <header className={`${classes.header__main}`}>
     //     <h1 className={`${classes.header_item} ${classes.logo}`}>Bookmarks</h1>
