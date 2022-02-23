@@ -1,0 +1,35 @@
+.HomePage {
+  background-color: #000000;
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    & > div {
+      justify-self: center;
+      align-self: center;
+    }
+  }
+
+  .app-logo {
+    max-width: 100px;
+    max-height: auto;
+    margin-right: auto;
+  }
+
+  .home-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+
+  .app-tag-line {
+    justify-self: center;
+    align-self: center;
+    bottom: 10px;
+    left: 0px;
+    text-align: left;
+  }
+}

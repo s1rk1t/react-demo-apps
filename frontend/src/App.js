@@ -1,6 +1,7 @@
 import './App.css';
 import { TeamPage } from './pages/TeamPage';
 import { MatchPage } from './pages/MatchPage';
+import HomePage from './pages/HomePage';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ function App() {
     <div className='App'>
       <Router>
         <Routes>
+          <Route path='/' element={<HomePage />}></Route>
           <Route path='/teams/:teamName/:year' element={<TeamPage />}></Route>
           <Route
             path='/teams/:teamName/matches/:year'

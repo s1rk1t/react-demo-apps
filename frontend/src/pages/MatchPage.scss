@@ -1,4 +1,9 @@
 .MatchPage {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 5fr;
+
+  .team-games-heading {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
 }

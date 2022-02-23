@@ -11,9 +11,25 @@
 }
 
 .win-card {
-  background-color: #43aa8b;
+  background-color: #000000;
+  border-color: #43aa8b;
+  border-style: solid;
+  border-radius: 20px;
+  border-width: 2px;
+
+  a {
+    color: #43aa8b;
+  }
 }
 
 .loss-card {
-  background-color: #780000;
+  background-color: #000000;
+  border-color: #780000;
+  border-style: solid;
+  border-radius: 20px;
+  border-width: 2px;
+
+  a {
+    color: #780000;
+  }
 }

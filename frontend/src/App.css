@@ -1,6 +1,7 @@
 .App {
-  padding: 25px;
+  padding: 10px;
   text-align: left;
+  background-color: #000000;
 }
 .win-card {
   background-color: #43aa8b;

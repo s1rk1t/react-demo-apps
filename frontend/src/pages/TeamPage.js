@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'; // returns parameters passed into Route's path
+import { useParams, Link } from 'react-router-dom'; // returns parameters passed into Route's path
 import GameDetail from '../components/GameDetail';
 import GameSmall from '../components/GameSmall';
 import { ThreeDots } from 'react-loader-spinner';
 import { PieChart } from 'react-minimal-pie-chart';
-
 import './TeamPage.scss';
 
 export const TeamPage = (props) => {
@@ -69,28 +68,28 @@ export const TeamPage = (props) => {
         />
       </div>
       <div className='game-detail-section'>
-        <h2>Recent Games</h2>
+        <h2 className='game-detail-header'>Recent Games</h2>
         <GameDetail
           year={year}
           mainTeam={isFetched && teamName}
-          game={isFetched && teamData.matchups[0].games[0]}
+          game={isFetched && teamData.games[0]}
         />
       </div>
       {isFetched &&
-        teamData.matchups.slice(1).map(
+        teamData.games.slice(1).map(
           (
             game // map over the last three games
           ) => (
             <GameSmall
               mainTeam={teamName}
-              key={game.games[0].week}
-              game={game.games[0]}
+              key={game.week}
+              game={game}
               year={year}
             />
           )
         )}
       <div className='more-link'>
-        <a href='#'>More ></a>
+        <Link to={`/teams/${teamName}/matches/${year}`}>More ></Link>
       </div>
     </div>
   );

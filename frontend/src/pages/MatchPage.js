@@ -8,7 +8,7 @@ import './MatchPage.scss';
 export const MatchPage = (props) => {
   let { teamName, year } = useParams();
 
-  const [matchups, setMatchups] = useState([]);
+  const [games, setGames] = useState([]);
   const [isFetched, setIsFetched] = useState(false);
 
   useEffect(() => {
@@ -17,29 +17,32 @@ export const MatchPage = (props) => {
         `http://localhost:8080/team/${teamName}/matches/${year}`
       );
       const data = await response.json();
-      setMatchups(data);
+      setGames(data);
       setIsFetched(true);
     };
 
     fetchSchedule();
   }, [teamName, year]);
 
-  if (!matchups || !teamName || !year || !isFetched) {
+  if (!games || !teamName || !year || !isFetched) {
     return <ThreeDots type='Circles' color='#ffffff' height={80} width={80} />;
   }
 
   return (
     <div className='MatchPage'>
       <div className='year-selector'>
+        <h3>Select Year</h3>
         <YearSelector team={teamName} />
       </div>
       <div className='game-detail-section'>
-        <h1>Match Page</h1>
-        {matchups.map((match) => (
+        <h1 className='team-games-heading'>
+          {teamName} games in {year}
+        </h1>
+        {games.map((game) => (
           <GameDetail
             year={year}
             mainTeam={isFetched && teamName}
-            game={isFetched && match.games[0]}
+            game={isFetched && game}
             key={Math.random().toString()}
           />
         ))}

@@ -1,0 +1,50 @@
+.header__main {
+  display: grid;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #abd0be;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.header_item {
+  background: transparent;
+  padding: 15px;
+  margin: auto;
+}
+
+.header__item .logo {
+  column-width: 1;
+}
+
+.header__item .search {
+  column-width: 4;
+}
+
+.header__item .archive {
+  column-width: 2;
+}
+
+.header__item .about {
+  column-width: 1;
+}
+
+.header__item .faq {
+  column-width: 1;
+}
+
+.wallpaper__container {
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+@font-face {
+  font-family: websiteTitle;
+  src: url('../../assets/fonts/KGYouWontBringMeDown.ttf');
+}
+.watermark {
+  font-family: websiteTitle;
+  font-size: 15rem;
+}
+/*export default CSSModules(Header, classes, {allowMultiple: true})*/
