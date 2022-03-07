@@ -12,6 +12,7 @@ export const MatchPage = (props) => {
   const [isFetched, setIsFetched] = useState(false);
 
   useEffect(() => {
+    setIsFetched(false);
     const fetchSchedule = async () => {
       const response = await fetch(
         `http://localhost:8080/team/${teamName}/matches/${year}`
@@ -36,7 +37,7 @@ export const MatchPage = (props) => {
       </div>
       <div className='game-detail-section'>
         <h1 className='team-games-heading'>
-          {teamName} games in {year}
+          All {teamName} SEC Games In {year}
         </h1>
         {games.map((game) => (
           <GameDetail

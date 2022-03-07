@@ -23,12 +23,13 @@ export const TeamPage = (props) => {
     };
 
     fetchGames();
+    setIsFetched(false);
   }, [teamName, year]);
 
   if (!teamData || !teamData.schedule || !teamName || !year || !isFetched) {
     return (
       <ThreeDots
-        className='spinner'
+        className='spinner dots'
         type='Circles'
         color='#ffffff'
         height={80}
