@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 
 import MoviesList from './components/MoviesList';
 import './App.css';
@@ -8,12 +8,14 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  async function fetchMoviesHandler() {
+  const fetchMoviesHandler = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
     try {
-      const response = await fetch('https://swapi.dev/api/films/');
+      const response = await fetch(
+        'https://react-http-aggeles-default-rtdb.firebaseio.com/movies.json'
+      );
 
       if (!response.ok) {
         // handle any bad response from API call
@@ -34,7 +36,11 @@ function App() {
       setError(error.message);
     }
     setIsLoading(false);
-  }
+  });
+
+  useEffect(() => {
+    fetchMoviesHandler();
+  }, [fetchMoviesHandler]); // we only need to query the data once, when the component first loads
 
   return (
     <React.Fragment>
