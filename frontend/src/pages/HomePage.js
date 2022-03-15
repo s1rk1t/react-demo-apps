@@ -20,7 +20,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchTeams = async () => {
-      const response = await fetch(`http://localhost:8080/teams`);
+      const response = await fetch(`/teams`);
       const data = await response.json();
       setTeams(data);
       setIsFetched(true);
@@ -41,12 +41,6 @@ const HomePage = () => {
             return <TeamTile key={Math.random()} teamName={team} />;
           })}
       </div>
-      {/* <div className='year-grid'>
-        {isFetched &&
-          years.map((year) => {
-            return <YearTile key={Math.random()} year={year} />;
-          })}
-      </div> */}
     </div>
   );
 };

@@ -14,7 +14,7 @@ export const YearSelector = ({ team }) => {
   return (
     <div className='YearSelector'>
       {years.map((year) => (
-        <li key={Math.random().toString()}>
+        <li key={year}>
           <Link to={`/teams/${team}/matches/${year}`}>{year}</Link>
         </li>
       ))}
